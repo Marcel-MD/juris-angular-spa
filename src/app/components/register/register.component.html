@@ -1,0 +1,65 @@
+<form class="example-container">
+  <img src="/assets/juris-dark-name.png" alt="image" />
+  <h1>Register</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input
+      matInput
+      placeholder="name@mail.com"
+      [formControl]="email"
+      required
+    />
+    <mat-error *ngIf="email.invalid">{{ getErrorMessage("email") }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      [formControl]="password"
+      required
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+    <mat-error *ngIf="password.invalid">{{
+      getErrorMessage("password")
+    }}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Confirm your password</mat-label>
+    <input
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      [formControl]="password2"
+      required
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+    <mat-error *ngIf="password.invalid">{{
+      getErrorMessage("password")
+    }}</mat-error>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    class="register-button"
+    (click)="registerUser()"
+  >
+    Register
+  </button>
+</form>

@@ -1,0 +1,16 @@
+mat-card {
+  background-color: #f44336;
+  opacity: 0.9;
+  color: white;
+  width: 300px;
+  margin: 1em auto 1em auto;
+}
+
+.message-container {
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

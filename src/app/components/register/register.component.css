@@ -1,0 +1,24 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+img {
+  width: 200px;
+  margin: 2em;
+}
+
+mat-form-field {
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.register-button {
+  min-width: 300px;
+  margin: 0.5em;
+}
