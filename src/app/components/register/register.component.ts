@@ -42,7 +42,10 @@ export class RegisterComponent implements OnInit {
         email: this.email.value,
         password: this.password.value,
       } as CreateUser)
-      .subscribe(() => (window.location.href = '/login'));
+      .subscribe((user) => {
+        if (user == null) return;
+        window.location.href = '/login';
+      });
   }
 
   getErrorMessage(field: string) {
