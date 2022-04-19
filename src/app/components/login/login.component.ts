@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
         password: this.password.value,
       } as CreateUser)
       .subscribe((user) => {
-        if (user == null) return;
-        localStorage.setItem('user', JSON.stringify(user));
+        if (!user) return;
         window.location.href = '/';
       });
   }

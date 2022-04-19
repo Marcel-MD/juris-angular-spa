@@ -21,6 +21,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NavbarButtonComponent } from './components/navigation/navbar-button/navbar-button.component';
+import { MenuButtonComponent } from './components/navigation/menu-button/menu-button.component';
+import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    NavbarButtonComponent,
+    MenuButtonComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
