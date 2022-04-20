@@ -1,0 +1,8 @@
+<div class="appointments-container">
+  <ng-container *ngFor="let appointment of appointments">
+    <app-appointment
+      [appointment]="appointment"
+      (onDelete)="deleteAppointment(appointment.id)"
+    ></app-appointment>
+  </ng-container>
+</div>

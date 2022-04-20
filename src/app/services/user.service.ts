@@ -5,6 +5,7 @@ import { ErrorHandlerService } from './error-handler.service';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user/user';
 import { CreateUser } from '../models/user/create-user';
+import { RoleTypeEnum } from '../models/enums/role-type.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -70,7 +71,7 @@ export class UserService {
 
   isAdmin(): boolean {
     if (!this.user) return false;
-    return this.user.roles.includes('Admin');
+    return this.user.roles.includes(RoleTypeEnum.Admin);
   }
 
   private saveUser(user?: User) {

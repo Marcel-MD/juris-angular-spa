@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
     {
       label: 'Dashboard',
       icon: 'rule',
-      link: '/profile/' + this.userService.getUserId(),
+      link: '/dashboard',
     },
     {
       label: 'Analytics',

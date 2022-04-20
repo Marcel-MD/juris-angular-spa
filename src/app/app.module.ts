@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -24,6 +24,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarButtonComponent } from './components/navigation/navbar-button/navbar-button.component';
 import { MenuButtonComponent } from './components/navigation/menu-button/menu-button.component';
 import { NavbarComponent } from './components/navigation/navbar/navbar.component';
+import { AppointmentsPageComponent } from './components/appointments/appointments-page/appointments-page.component';
+import { ProfilePageComponent } from './components/profiles/profile-page/profile-page.component';
+import { ProfileSearchComponent } from './components/profiles/profile-search/profile-search.component';
+import { AppointmentComponent } from './components/appointments/appointment/appointment.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,10 @@ import { NavbarComponent } from './components/navigation/navbar/navbar.component
     NavbarButtonComponent,
     MenuButtonComponent,
     NavbarComponent,
+    AppointmentsPageComponent,
+    ProfilePageComponent,
+    ProfileSearchComponent,
+    AppointmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +64,9 @@ import { NavbarComponent } from './components/navigation/navbar/navbar.component
 
     FlexLayoutModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
