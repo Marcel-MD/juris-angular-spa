@@ -1,0 +1,21 @@
+<mat-card class="card-container" routerLink="{{ '../profile/' + profile.id }}">
+  <img [src]="[getImageUrl()]" />
+  <div class="card-info">
+    <mat-card-title>{{
+      profile.firstName + " " + profile.lastName
+    }}</mat-card-title>
+    <p>{{ profile.profileCategory.category }}</p>
+    <p>{{ profile.city.name + ", " + profile.address }}</p>
+    <p>
+      {{ "Rating: " + (profile.rating ? profile.rating?.toFixed(1) : "-") }}
+    </p>
+    <p>{{ "Price: " + profile.price + " lei" }}</p>
+    <p>
+      {{
+        profile.description.length < 25
+          ? profile.description
+          : profile.description.substring(0, 100) + "..."
+      }}
+    </p>
+  </div>
+</mat-card>

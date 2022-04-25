@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarButtonComponent } from './components/navigation/navbar-button/navbar-button.component';
@@ -29,6 +30,8 @@ import { ProfilePageComponent } from './components/profiles/profile-page/profile
 import { ProfileSearchComponent } from './components/profiles/profile-search/profile-search.component';
 import { AppointmentComponent } from './components/appointments/appointment/appointment.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ProfileCardComponent } from './components/profiles/profile-card/profile-card.component';
+import { SearchBarComponent } from './components/profiles/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ProfilePageComponent,
     ProfileSearchComponent,
     AppointmentComponent,
+    ProfileCardComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +66,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MatIconModule,
     MatMenuModule,
     MatDividerModule,
+    MatSelectModule,
 
     FlexLayoutModule,
   ],

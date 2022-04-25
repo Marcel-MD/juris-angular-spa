@@ -9,7 +9,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
   styleUrls: ['./appointment.component.css'],
 })
 export class AppointmentComponent implements OnInit {
-  @Output() onDelete: EventEmitter<boolean> = new EventEmitter();
+  @Output() onDelete: EventEmitter<number> = new EventEmitter();
   @Input() appointment!: AppointmentRequest;
   statusEnum = AppointmentStatusEnum;
 
@@ -26,6 +26,6 @@ export class AppointmentComponent implements OnInit {
 
   deleteAppointment() {
     this.appointmentService.deleteAppointment(this.appointment.id).subscribe();
-    this.onDelete.emit(true);
+    this.onDelete.emit(this.appointment.id);
   }
 }

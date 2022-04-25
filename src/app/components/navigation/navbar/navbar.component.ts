@@ -53,11 +53,6 @@ export class NavbarComponent implements OnInit {
 
   adminItems: MenuItem[] = [
     {
-      label: 'Dashboard',
-      icon: 'rule',
-      link: '/dashboard',
-    },
-    {
       label: 'Analytics',
       icon: 'analytics',
       link: '/analytics',

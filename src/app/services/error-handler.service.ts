@@ -26,7 +26,7 @@ export class ErrorHandlerService {
           break;
 
         case 400:
-          if (error.error != null && error.error.errors != undefined) {
+          if (error.error && error.error.errors) {
             error.error.errors.forEach((e: string) => {
               this.messageService.add(e);
             });
@@ -38,10 +38,22 @@ export class ErrorHandlerService {
           break;
 
         case 401:
+          if (error.error && error.error.errors) {
+            error.error.errors.forEach((e: string) => {
+              this.messageService.add(e);
+            });
+            break;
+          }
           this.messageService.add('Unauthorized!');
           break;
 
         case 404:
+          if (error.error && error.error.errors) {
+            error.error.errors.forEach((e: string) => {
+              this.messageService.add(e);
+            });
+            break;
+          }
           this.messageService.add(
             'Not Found! Resource you requested is missing!'
           );

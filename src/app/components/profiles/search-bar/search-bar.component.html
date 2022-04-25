@@ -1,0 +1,41 @@
+<form>
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select [(ngModel)]="queryParams.categoryId" name="category">
+      <mat-option>-</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category.id">
+        {{ category.category }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>City</mat-label>
+    <mat-select [(ngModel)]="queryParams.cityId" name="city">
+      <mat-option>-</mat-option>
+      <mat-option *ngFor="let city of cities" [value]="city.id">
+        {{ city.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Sort By</mat-label>
+    <mat-select [(ngModel)]="queryParams.sortBy" name="sortBy">
+      <mat-option>-</mat-option>
+      <mat-option *ngFor="let sort of sortByValues" [value]="sort">
+        {{ sort }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field *ngIf="userService.isAdmin()" appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="queryParams.status" name="status">
+      <mat-option>-</mat-option>
+      <mat-option *ngFor="let status of statusValues" [value]="status">
+        {{ status }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-fab color="primary" (click)="search()">
+    <mat-icon>search</mat-icon>
+  </button>
+</form>

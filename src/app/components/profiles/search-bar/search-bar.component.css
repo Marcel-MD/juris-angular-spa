@@ -1,0 +1,21 @@
+form {
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin-bottom: 15px;
+}
+
+mat-form-field {
+  max-width: 200px;
+}
+
+@media (max-width: 800px) {
+  mat-form-field {
+    max-width: 110px;
+  }
+}

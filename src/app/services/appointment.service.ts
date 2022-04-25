@@ -56,14 +56,18 @@ export class AppointmentService {
   ): Observable<void> {
     const url = `${this.url}/${id}/status/${status}`;
     return this.http
-      .patch<void>(url, this.httpOptions)
-      .pipe(catchError(this.errorHandler.handleError<void>('deletePlatform')));
+      .patch<void>(url, {})
+      .pipe(
+        catchError(this.errorHandler.handleError<void>('setAppointmentStatus'))
+      );
   }
 
   deleteAppointment(id: number): Observable<void> {
     const url = `${this.url}/${id}`;
     return this.http
-      .delete<void>(url, this.httpOptions)
-      .pipe(catchError(this.errorHandler.handleError<void>('deletePlatform')));
+      .delete<void>(url)
+      .pipe(
+        catchError(this.errorHandler.handleError<void>('deleteAppointment'))
+      );
   }
 }

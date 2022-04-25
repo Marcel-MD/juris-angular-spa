@@ -2,7 +2,7 @@
   <ng-container *ngFor="let appointment of appointments">
     <app-appointment
       [appointment]="appointment"
-      (onDelete)="deleteAppointment(appointment.id)"
+      (onDelete)="deleteAppointment($event)"
     ></app-appointment>
   </ng-container>
 </div>
