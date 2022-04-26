@@ -6,12 +6,21 @@ form {
   align-items: center;
 }
 
-button {
-  margin-bottom: 15px;
-}
-
 mat-form-field {
   max-width: 200px;
+}
+
+.mat-form-field {
+  background-color: white;
+  height: 50px;
+}
+
+.first-field {
+  border-radius: 25px 0 0 25px;
+}
+
+.last-field {
+  border-radius: 0 25px 25px 0;
 }
 
 @media (max-width: 800px) {

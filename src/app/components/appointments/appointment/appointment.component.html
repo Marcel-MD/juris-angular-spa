@@ -51,6 +51,6 @@
     </button>
   </mat-card-actions>
   <mat-card-footer>{{
-    appointment.creationDate.toString().replace("T", " ").split(".")[0]
+    appointment.creationDate | date: "short"
   }}</mat-card-footer>
 </mat-card>
