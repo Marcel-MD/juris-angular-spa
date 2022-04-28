@@ -29,7 +29,7 @@ export class UserService {
     const url = `${this.url}/login`;
     return this.http
       .post<User>(url, createUser, this.httpOptions)
-      .pipe(catchError(this.errorHandler.handleError<User>('loginUser')))
+      .pipe(catchError(this.errorHandler.handleError<User>()))
       .pipe(
         map((user) => {
           this.saveUser(user);
@@ -42,7 +42,7 @@ export class UserService {
     const url = `${this.url}/register`;
     return this.http
       .post<User>(url, createUser, this.httpOptions)
-      .pipe(catchError(this.errorHandler.handleError<User>('registerUser')));
+      .pipe(catchError(this.errorHandler.handleError<User>()));
   }
 
   logoutUser(): void {
@@ -56,6 +56,12 @@ export class UserService {
 
   getUserId(): number {
     return this.user ? this.user.id : 0;
+  }
+
+  getProfileId(): number {
+    if (!this.user) return 0;
+    if (!this.user.profileId) return 0;
+    return this.user.profileId;
   }
 
   getToken(): string {

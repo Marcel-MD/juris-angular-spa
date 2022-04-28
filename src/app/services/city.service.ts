@@ -25,19 +25,19 @@ export class CityService {
     const url = `${this.url}`;
     return this.http
       .get<City[]>(url)
-      .pipe(catchError(this.errorHandler.handleError<City[]>('getCities')));
+      .pipe(catchError(this.errorHandler.handleError<City[]>()));
   }
 
   createCity(city: CreateCity): Observable<City> {
     return this.http
       .post<City>(`${this.url}`, city, this.httpOptions)
-      .pipe(catchError(this.errorHandler.handleError<City>('createCity')));
+      .pipe(catchError(this.errorHandler.handleError<City>()));
   }
 
   deleteCity(id: number): Observable<void> {
     const url = `${this.url}/${id}`;
     return this.http
       .delete<void>(url)
-      .pipe(catchError(this.errorHandler.handleError<void>('deleteCity')));
+      .pipe(catchError(this.errorHandler.handleError<void>()));
   }
 }

@@ -25,13 +25,7 @@ export class ProfileCategoryService {
     const url = `${this.url}`;
     return this.http
       .get<ProfileCategory[]>(url)
-      .pipe(
-        catchError(
-          this.errorHandler.handleError<ProfileCategory[]>(
-            'getProfileCategories'
-          )
-        )
-      );
+      .pipe(catchError(this.errorHandler.handleError<ProfileCategory[]>()));
   }
 
   createProfileCategory(
@@ -39,21 +33,13 @@ export class ProfileCategoryService {
   ): Observable<ProfileCategory> {
     return this.http
       .post<ProfileCategory>(`${this.url}`, profileCategory, this.httpOptions)
-      .pipe(
-        catchError(
-          this.errorHandler.handleError<ProfileCategory>(
-            'createProfileCategory'
-          )
-        )
-      );
+      .pipe(catchError(this.errorHandler.handleError<ProfileCategory>()));
   }
 
   deleteProfileCategory(id: number): Observable<void> {
     const url = `${this.url}/${id}`;
     return this.http
       .delete<void>(url)
-      .pipe(
-        catchError(this.errorHandler.handleError<void>('deleteProfileCategory'))
-      );
+      .pipe(catchError(this.errorHandler.handleError<void>()));
   }
 }

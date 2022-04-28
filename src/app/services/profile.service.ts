@@ -55,49 +55,39 @@ export class ProfileService {
 
     return this.http
       .get<ListProfile[]>(this.url, options)
-      .pipe(
-        catchError(this.errorHandler.handleError<ListProfile[]>('getProfiles'))
-      );
+      .pipe(catchError(this.errorHandler.handleError<ListProfile[]>()));
   }
 
   getProfileById(id: number): Observable<Profile> {
     const url = `${this.url}/${id}`;
     return this.http
       .get<Profile>(url)
-      .pipe(catchError(this.errorHandler.handleError<Profile>('getProfile')));
+      .pipe(catchError(this.errorHandler.handleError<Profile>()));
   }
 
   createProfile(profile: UpdateProfile): Observable<Profile> {
     return this.http
       .post<Profile>(`${this.url}`, profile, this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler.handleError<Profile>('createProfile'))
-      );
+      .pipe(catchError(this.errorHandler.handleError<Profile>()));
   }
 
   createEmptyProfile(): Observable<Profile> {
     return this.http
       .post<Profile>(`${this.url}/empty`, {}, this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler.handleError<Profile>('createEmptyProfile'))
-      );
+      .pipe(catchError(this.errorHandler.handleError<Profile>()));
   }
 
   updateProfile(id: number, profile: UpdateProfile): Observable<Profile> {
     return this.http
       .put<Profile>(`${this.url}/${id}`, profile, this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler.handleError<Profile>('updateProfile'))
-      );
+      .pipe(catchError(this.errorHandler.handleError<Profile>()));
   }
 
   setProfileStatus(id: number, status: ProfileStatusEnum): Observable<void> {
     const url = `${this.url}/${id}/status/${status}`;
     return this.http
       .patch<void>(url, {})
-      .pipe(
-        catchError(this.errorHandler.handleError<void>('setProfileStatus'))
-      );
+      .pipe(catchError(this.errorHandler.handleError<void>()));
   }
 
   setProfileImage(id: number, file: File): Observable<void> {
@@ -112,7 +102,7 @@ export class ProfileService {
 
     return this.http
       .patch<void>(url, formData, options)
-      .pipe(catchError(this.errorHandler.handleError<void>('setProfileImage')));
+      .pipe(catchError(this.errorHandler.handleError<void>()));
   }
 
   getProfileImageUrl(imageName: string): string {
@@ -123,6 +113,6 @@ export class ProfileService {
     const url = `${this.url}/${id}`;
     return this.http
       .delete<void>(url, this.httpOptions)
-      .pipe(catchError(this.errorHandler.handleError<void>('deleteProfile')));
+      .pipe(catchError(this.errorHandler.handleError<void>()));
   }
 }

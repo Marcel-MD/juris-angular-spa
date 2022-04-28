@@ -14,7 +14,7 @@ export class ErrorHandlerService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  handleError<T>(operation = 'operation', result?: T) {
+  handleError<T>(result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead
 

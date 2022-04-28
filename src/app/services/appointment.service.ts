@@ -26,11 +26,7 @@ export class AppointmentService {
     const url = `${this.url}/${userId}`;
     return this.http
       .get<AppointmentRequest[]>(url)
-      .pipe(
-        catchError(
-          this.errorHandler.handleError<AppointmentRequest[]>('getAppointments')
-        )
-      );
+      .pipe(catchError(this.errorHandler.handleError<AppointmentRequest[]>()));
   }
 
   createAppointment(
@@ -43,11 +39,7 @@ export class AppointmentService {
         appointment,
         this.httpOptions
       )
-      .pipe(
-        catchError(
-          this.errorHandler.handleError<AppointmentRequest>('createAppointment')
-        )
-      );
+      .pipe(catchError(this.errorHandler.handleError<AppointmentRequest>()));
   }
 
   setAppointmentStatus(
@@ -57,17 +49,13 @@ export class AppointmentService {
     const url = `${this.url}/${id}/status/${status}`;
     return this.http
       .patch<void>(url, {})
-      .pipe(
-        catchError(this.errorHandler.handleError<void>('setAppointmentStatus'))
-      );
+      .pipe(catchError(this.errorHandler.handleError<void>()));
   }
 
   deleteAppointment(id: number): Observable<void> {
     const url = `${this.url}/${id}`;
     return this.http
       .delete<void>(url)
-      .pipe(
-        catchError(this.errorHandler.handleError<void>('deleteAppointment'))
-      );
+      .pipe(catchError(this.errorHandler.handleError<void>()));
   }
 }
