@@ -1,1 +1,5 @@
 <p>profile-page works!</p>
+<app-appointment-form
+  *ngIf="profile"
+  [userId]="profile.userId"
+></app-appointment-form>

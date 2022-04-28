@@ -32,6 +32,7 @@ import { AppointmentComponent } from './components/appointments/appointment/appo
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ProfileCardComponent } from './components/profiles/profile-card/profile-card.component';
 import { SearchBarComponent } from './components/profiles/search-bar/search-bar.component';
+import { AppointmentFormComponent } from './components/appointments/appointment-form/appointment-form.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SearchBarComponent } from './components/profiles/search-bar/search-bar.
     AppointmentComponent,
     ProfileCardComponent,
     SearchBarComponent,
+    AppointmentFormComponent,
   ],
   imports: [
     BrowserModule,

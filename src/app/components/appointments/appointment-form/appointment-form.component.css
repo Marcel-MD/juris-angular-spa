@@ -1,0 +1,21 @@
+mat-card {
+  max-width: 600px;
+}
+
+mat-card-title {
+  text-align: center;
+  margin: 1em;
+}
+
+button {
+  display: block;
+  margin: auto;
+}
+
+.small-width {
+  width: 50%;
+}
+
+.full-width {
+  width: 100%;
+}

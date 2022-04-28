@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
     {
       label: 'Profile',
       icon: 'account_circle',
-      link: '/profile/' + this.userService.getUserId(),
+      link: '/profile/' + this.userService.getProfileId(),
     },
     {
       label: 'Appointments',
