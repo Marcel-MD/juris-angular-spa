@@ -57,7 +57,7 @@ export class AppointmentFormComponent implements OnInit {
       });
   }
 
-  getErrorMessage(field: string): string {
+  getErrorMessage(field: string | string[]): string {
     let fc = this.appointment.get(field);
     if (!fc) return 'Invalid field';
 

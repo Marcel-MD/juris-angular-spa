@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfilePageComponent } from './components/profiles/profile-page/profile-page.component';
 import { ProfileSearchComponent } from './components/profiles/profile-search/profile-search.component';
+import { ProfileUpdatePageComponent } from './components/profiles/profile-update-page/profile-update-page.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
@@ -13,8 +14,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile/:id', component: ProfilePageComponent },
+  { path: 'profile/:id/update', component: ProfileUpdatePageComponent },
   { path: 'appointment/:id', component: AppointmentsPageComponent },
-  { path: 'search', component: ProfileSearchComponent },
+  { path: 'profile', component: ProfileSearchComponent },
 ];
 
 @NgModule({

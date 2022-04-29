@@ -1,5 +1,109 @@
-<p>profile-page works!</p>
-<app-appointment-form
-  *ngIf="profile"
-  [userId]="profile.userId"
-></app-appointment-form>
+<button
+  *ngIf="!profileId"
+  mat-raised-button
+  color="primary"
+  style="display: block; margin: 2em auto"
+>
+  Create New Profile
+</button>
+<div *ngIf="profileId" class="main-container">
+  <mat-card *ngIf="profile" class="info-container">
+    <div class="image-item">
+      <img [src]="[getImageUrl()]" />
+      <h2
+        [ngStyle]="{
+          color: profile.status == statusEnum.Approved ? '#3f51b5' : '#f44336'
+        }"
+      >
+        {{ profile.status }}
+        <mat-icon>{{
+          profile.status == statusEnum.Approved ? "check" : "close"
+        }}</mat-icon>
+      </h2>
+      <div *ngIf="userService.isAuthenticated()" class="button-container">
+        <ng-container *ngIf="profile.userId == userService.getUserId()">
+          <button mat-raised-button color="primary" routerLink="./update">
+            Update
+          </button>
+          <button mat-raised-button color="warn" (click)="deleteProfile()">
+            Delete
+          </button>
+        </ng-container>
+        <ng-container *ngIf="userService.isAdmin()">
+          <button
+            *ngIf="profile.status != statusEnum.Approved"
+            mat-raised-button
+            color="primary"
+            (click)="setStatus(statusEnum.Approved)"
+          >
+            Approve
+          </button>
+          <button
+            *ngIf="profile.status != statusEnum.Unapproved"
+            mat-raised-button
+            color="accent"
+            (click)="setStatus(statusEnum.Unapproved)"
+          >
+            Unapprove
+          </button>
+          <button mat-raised-button color="warn" (click)="deleteProfile()">
+            Delete
+          </button>
+        </ng-container>
+      </div>
+    </div>
+    <div class="info-item">
+      <mat-card-title>{{
+        profile.firstName + " " + profile.lastName
+      }}</mat-card-title>
+      <p>{{ profile.profileCategory.category }}</p>
+      <p>{{ profile.city.name + ", " + profile.address }}</p>
+      <p>
+        {{ profile.description }}
+      </p>
+      <h2>
+        {{ "Rating: " + (profile.rating ? profile.rating?.toFixed(1) : "-") }}
+      </h2>
+      <h2>{{ "Price: " + profile.price + " lei" }}</h2>
+    </div>
+    <div class="info-item">
+      <h2>Education:</h2>
+      <ul *ngFor="let education of profile.educations">
+        <strong>{{ education.institution }}</strong>
+        {{
+          education.speciality
+        }}
+        ({{
+          education.startDate | date: "shortDate"
+        }}
+        -
+        {{
+          education.endDate
+            ? (education.endDate | date: "shortDate")
+            : "present"
+        }})
+      </ul>
+      <h2>Experience:</h2>
+      <ul *ngFor="let experience of profile.experiences">
+        <strong>{{ experience.company }}</strong>
+        {{
+          experience.position
+        }}
+        ({{
+          experience.startDate | date: "shortDate"
+        }}
+        -
+        {{
+          experience.endDate
+            ? (experience.endDate | date: "shortDate")
+            : "present"
+        }})
+      </ul>
+    </div>
+  </mat-card>
+
+  <app-appointment-form
+    *ngIf="profile"
+    [userId]="profile.userId"
+  ></app-appointment-form>
+</div>

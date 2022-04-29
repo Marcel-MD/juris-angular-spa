@@ -47,7 +47,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   search() {
-    this.router.navigate(['/search'], { queryParams: this.queryParams });
+    this.router.navigate(['/profile'], { queryParams: this.queryParams });
     this.onSearch.emit(true);
   }
 }

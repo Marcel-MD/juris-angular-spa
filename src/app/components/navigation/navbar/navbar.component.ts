@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     {
       label: 'Search',
       icon: 'search',
-      link: '/search',
+      link: '/profile',
     },
   ];
 
