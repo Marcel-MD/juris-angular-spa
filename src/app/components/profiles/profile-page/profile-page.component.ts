@@ -47,4 +47,9 @@ export class ProfilePageComponent implements OnInit {
     this.profileService.setProfileStatus(this.profile.id, status).subscribe();
     this.profile.status = status;
   }
+
+  deleteReview(id: number) {
+    if (!this.profile) return;
+    this.profile.reviews = this.profile.reviews.filter((r) => r.id != id);
+  }
 }

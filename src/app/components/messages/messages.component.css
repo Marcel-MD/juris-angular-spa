@@ -4,6 +4,7 @@ mat-card {
   color: white;
   width: 300px;
   margin: 1em auto 1em auto;
+  border-radius: 5px;
 }
 
 .message-container {

@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarButtonComponent } from './components/navigation/navbar-button/navbar-button.component';
@@ -34,6 +35,8 @@ import { ProfileCardComponent } from './components/profiles/profile-card/profile
 import { SearchBarComponent } from './components/profiles/search-bar/search-bar.component';
 import { AppointmentFormComponent } from './components/appointments/appointment-form/appointment-form.component';
 import { ProfileUpdatePageComponent } from './components/profiles/profile-update-page/profile-update-page.component';
+import { ReviewCardComponent } from './components/reviews/review-card/review-card.component';
+import { ReviewFormComponent } from './components/reviews/review-form/review-form.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,8 @@ import { ProfileUpdatePageComponent } from './components/profiles/profile-update
     SearchBarComponent,
     AppointmentFormComponent,
     ProfileUpdatePageComponent,
+    ReviewCardComponent,
+    ReviewFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +76,7 @@ import { ProfileUpdatePageComponent } from './components/profiles/profile-update
     MatMenuModule,
     MatDividerModule,
     MatSelectModule,
+    MatSliderModule,
 
     FlexLayoutModule,
   ],
