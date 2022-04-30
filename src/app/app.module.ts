@@ -37,6 +37,7 @@ import { AppointmentFormComponent } from './components/appointments/appointment-
 import { ProfileUpdatePageComponent } from './components/profiles/profile-update-page/profile-update-page.component';
 import { ReviewCardComponent } from './components/reviews/review-card/review-card.component';
 import { ReviewFormComponent } from './components/reviews/review-form/review-form.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ReviewFormComponent } from './components/reviews/review-form/review-for
     MatDividerModule,
     MatSelectModule,
     MatSliderModule,
+    MatExpansionModule,
 
     FlexLayoutModule,
   ],

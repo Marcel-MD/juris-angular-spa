@@ -21,19 +21,19 @@
             profile.status == statusEnum.Approved ? "check" : "close"
           }}</mat-icon>
         </h2>
-        <div *ngIf="userService.isAuthenticated()" class="button-container">
+        <ng-container *ngIf="userService.isAuthenticated()">
           <ng-container *ngIf="profile.userId == userService.getUserId()">
-            <button mat-raised-button color="primary" routerLink="./update">
+            <button mat-button color="primary" routerLink="./update">
               Update
             </button>
-            <button mat-raised-button color="warn" (click)="deleteProfile()">
-              Delete
+            <button mat-button color="warn" (click)="deleteProfile()">
+              <mat-icon>delete_forever</mat-icon>Delete
             </button>
           </ng-container>
           <ng-container *ngIf="userService.isAdmin()">
             <button
               *ngIf="profile.status != statusEnum.Approved"
-              mat-raised-button
+              mat-button
               color="primary"
               (click)="setStatus(statusEnum.Approved)"
             >
@@ -41,17 +41,16 @@
             </button>
             <button
               *ngIf="profile.status != statusEnum.Unapproved"
-              mat-raised-button
-              color="accent"
+              mat-button
               (click)="setStatus(statusEnum.Unapproved)"
             >
               Unapprove
             </button>
-            <button mat-raised-button color="warn" (click)="deleteProfile()">
-              Delete
+            <button mat-button color="warn" (click)="deleteProfile()">
+              <mat-icon>delete_forever</mat-icon>Delete
             </button>
           </ng-container>
-        </div>
+        </ng-container>
       </div>
       <div class="info-item">
         <mat-card-title>{{
