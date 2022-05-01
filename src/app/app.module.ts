@@ -21,6 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarButtonComponent } from './components/navigation/navbar-button/navbar-button.component';
@@ -79,6 +81,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSelectModule,
     MatSliderModule,
     MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     FlexLayoutModule,
   ],

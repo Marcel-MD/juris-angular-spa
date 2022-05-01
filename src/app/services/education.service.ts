@@ -31,6 +31,9 @@ export class EducationService {
     profileId: number,
     education: CreateEducation
   ): Observable<Education> {
+    if (!education.endDate) {
+      delete education.endDate;
+    }
     return this.http
       .post<Education>(`${this.url}/${profileId}`, education, this.httpOptions)
       .pipe(catchError(this.errorHandler.handleError<Education>()));

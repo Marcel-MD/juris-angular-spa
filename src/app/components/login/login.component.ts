@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       } as CreateUser)
       .subscribe((user) => {
         if (!user) return;
-        this.router.navigate(['/']);
+        window.location.href = '/';
       });
   }
 

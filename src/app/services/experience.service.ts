@@ -31,6 +31,9 @@ export class ExperienceService {
     profileId: number,
     experience: CreateExperience
   ): Observable<Experience> {
+    if (!experience.endDate) {
+      delete experience.endDate;
+    }
     return this.http
       .post<Experience>(
         `${this.url}/${profileId}`,

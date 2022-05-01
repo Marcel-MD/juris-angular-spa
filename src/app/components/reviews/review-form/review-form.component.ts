@@ -28,7 +28,7 @@ export class ReviewFormComponent implements OnInit {
     phoneNumber: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
-      Validators.maxLength(16),
+      Validators.maxLength(50),
     ]),
     description: new FormControl('', [
       Validators.required,
