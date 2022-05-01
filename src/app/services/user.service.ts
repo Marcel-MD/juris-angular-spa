@@ -64,6 +64,12 @@ export class UserService {
     return this.user.profileId;
   }
 
+  updateProfileId(id: number) {
+    if (!this.user) return;
+    this.user.profileId = id;
+    this.saveUser(this.user);
+  }
+
   getToken(): string {
     if (this.user) {
       if (this.user.token) return this.user.token;

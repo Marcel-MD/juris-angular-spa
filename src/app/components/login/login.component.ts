@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CreateUser } from 'src/app/models/user/create-user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
       } as CreateUser)
       .subscribe((user) => {
         if (!user) return;
-        window.location.href = '/';
+        this.router.navigate(['/']);
       });
   }
 

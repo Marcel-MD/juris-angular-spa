@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from 'src/app/models/profile/profile';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ProfileStatusEnum } from 'src/app/models/enums/profile-status.enum';
@@ -17,6 +17,7 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     public userService: UserService,
     private profileService: ProfileService
   ) {}
@@ -38,8 +39,10 @@ export class ProfilePageComponent implements OnInit {
 
   deleteProfile() {
     if (!this.profile) return;
-    this.profileService.deleteProfile(this.profile.id).subscribe();
-    window.location.href = '/';
+    this.profileService.deleteProfile(this.profile.id).subscribe(() => {
+      this.userService.updateProfileId(0);
+      window.location.href = '/';
+    });
   }
 
   setStatus(status: ProfileStatusEnum) {
@@ -51,5 +54,12 @@ export class ProfilePageComponent implements OnInit {
   deleteReview(id: number) {
     if (!this.profile) return;
     this.profile.reviews = this.profile.reviews.filter((r) => r.id != id);
+  }
+
+  createNewProfile() {
+    this.profileService.createEmptyProfile().subscribe((p) => {
+      this.userService.updateProfileId(p.id);
+      window.location.href = `/profile/${p.id}/update`;
+    });
   }
 }

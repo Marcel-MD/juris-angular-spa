@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CreateUser } from 'src/app/models/user/create-user';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
@@ -12,7 +13,8 @@ import { UserService } from 'src/app/services/user.service';
 export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
       } as CreateUser)
       .subscribe((user) => {
         if (!user) return;
-        window.location.href = '/login';
+        this.router.navigate(['/login']);
       });
   }
 
