@@ -1,4 +1,4 @@
-<div class="main-container">
+<div *ngIf="profileId" class="main-container">
   <mat-card>
     <mat-card-title> Update Profile Info </mat-card-title>
     <form [formGroup]="profile" class="example-form">
@@ -98,70 +98,6 @@
       </button>
     </form>
   </mat-card>
-  <mat-card>
-    <mat-card-title>Education</mat-card-title>
-    <form [formGroup]="education" class="example-form">
-      <mat-form-field appearance="fill" class="small-width">
-        <mat-label>Institution</mat-label>
-        <input formControlName="institution" matInput required />
-        <mat-error *ngIf="education.get('institution')?.invalid">{{
-          getEducationErrorMessage("institution")
-        }}</mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="small-width">
-        <mat-label>Speciality</mat-label>
-        <input formControlName="speciality" matInput required />
-        <mat-error *ngIf="profile.get('speciality')?.invalid">{{
-          getEducationErrorMessage("speciality")
-        }}</mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="date-range-field">
-        <mat-label>Enter a date range</mat-label>
-        <mat-date-range-input [formGroup]="education" [rangePicker]="picker">
-          <input
-            matStartDate
-            formControlName="startDate"
-            placeholder="Start date"
-          />
-          <input matEndDate formControlName="endDate" placeholder="End date" />
-        </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-        <mat-error *ngIf="profile.get('startDate')?.hasError('required')"
-          >Start date required</mat-error
-        >
-      </mat-form-field>
-      <button
-        class="add-button"
-        (click)="addEducation()"
-        [disabled]="!education.valid"
-        color="primary"
-        mat-raised-button
-      >
-        <mat-icon class="add-icon">add</mat-icon>
-      </button>
-    </form>
-    <div *ngFor="let education of educations">
-      <p>
-        <strong>{{ education.institution }}</strong>
-        {{ education.speciality }}
-        ({{ education.startDate | date: "shortDate" }}
-        -
-        {{
-          education.endDate
-            ? (education.endDate | date: "shortDate")
-            : "present"
-        }})
-        <button
-          mat-icon-button
-          color="warn"
-          (click)="deleteEducation(education.id)"
-        >
-          <mat-icon>delete_forever</mat-icon>
-        </button>
-      </p>
-    </div>
-  </mat-card>
+  <app-update-education [profileId]="profileId"></app-update-education>
+  <app-update-experience [profileId]="profileId"></app-update-experience>
 </div>

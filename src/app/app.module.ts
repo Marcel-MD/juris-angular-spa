@@ -40,6 +40,8 @@ import { ProfileUpdatePageComponent } from './components/profiles/profile-update
 import { ReviewCardComponent } from './components/reviews/review-card/review-card.component';
 import { ReviewFormComponent } from './components/reviews/review-form/review-form.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { UpdateEducationComponent } from './components/educations/update-education/update-education.component';
+import { UpdateExperienceComponent } from './components/experiences/update-experience/update-experience.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ProfileUpdatePageComponent,
     ReviewCardComponent,
     ReviewFormComponent,
+    UpdateEducationComponent,
+    UpdateExperienceComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,21 +25,3 @@ mat-card-title {
 .full-width {
   width: 100%;
 }
-
-.add-bar {
-  display: flex;
-}
-
-.date-range-field {
-  width: 80%;
-}
-
-.add-button {
-  width: 20%;
-  padding-top: 16px;
-  padding-bottom: 0;
-}
-
-.add-icon {
-  margin-bottom: 16px;
-}
