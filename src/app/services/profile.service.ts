@@ -90,19 +90,21 @@ export class ProfileService {
       .pipe(catchError(this.errorHandler.handleError<void>()));
   }
 
-  setProfileImage(id: number, file: File): Observable<void> {
+  setProfileImage(id: number, file: File): Observable<string> {
     const url = `${this.url}/${id}/image`;
     const options = {
       headers: new HttpHeaders({
         'Content-Disposition': 'multipart/form-data',
       }),
+      responseType: 'text',
     };
     const formData = new FormData();
     formData.append('image', file, file.name);
 
-    return this.http
-      .patch<void>(url, formData, options)
-      .pipe(catchError(this.errorHandler.handleError<void>()));
+    // @ts-ignore
+    return this.http // @ts-ignore
+      .patch<string>(url, formData, options)
+      .pipe(catchError(this.errorHandler.handleError<string>()));
   }
 
   getProfileImageUrl(imageName: string): string {

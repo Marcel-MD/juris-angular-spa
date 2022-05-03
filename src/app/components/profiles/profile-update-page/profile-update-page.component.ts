@@ -56,6 +56,7 @@ export class ProfileUpdatePageComponent implements OnInit {
   });
 
   profileId?: number;
+  imageName?: string;
   categories: ProfileCategory[] = [];
   cities: City[] = [];
 
@@ -77,8 +78,9 @@ export class ProfileUpdatePageComponent implements OnInit {
     });
 
     let id = Number(this.route.snapshot.paramMap.get('id'));
-    this.profileId = id;
     this.profileService.getProfileById(id).subscribe((profile) => {
+      this.profileId = profile.id;
+      this.imageName = profile.imageName;
       this.profile.patchValue({
         profileCategoryId: profile.profileCategory.id,
         cityId: profile.city.id,

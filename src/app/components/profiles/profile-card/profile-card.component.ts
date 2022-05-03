@@ -9,15 +9,10 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class ProfileCardComponent implements OnInit {
   @Input() profile!: ListProfile;
-  imageUrl: string = '';
 
   constructor(private profileService: ProfileService) {}
 
-  ngOnInit(): void {
-    this.imageUrl = this.profileService.getProfileImageUrl(
-      this.profile.imageName
-    );
-  }
+  ngOnInit(): void {}
 
   getImageUrl() {
     if (this.profile.imageName) {

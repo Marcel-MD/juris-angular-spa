@@ -1,6 +1,6 @@
 <div *ngIf="profileId" class="main-container">
   <mat-card>
-    <mat-card-title> Update Profile Info </mat-card-title>
+    <mat-card-title> Profile Info </mat-card-title>
     <form [formGroup]="profile" class="example-form">
       <mat-form-field appearance="fill" class="small-width">
         <mat-label>First name</mat-label>
@@ -98,6 +98,10 @@
       </button>
     </form>
   </mat-card>
+  <app-profile-image-upload
+    [profileId]="profileId"
+    [imageName]="imageName"
+  ></app-profile-image-upload>
   <app-update-education [profileId]="profileId"></app-update-education>
   <app-update-experience [profileId]="profileId"></app-update-experience>
 </div>

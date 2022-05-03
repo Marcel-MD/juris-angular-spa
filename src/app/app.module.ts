@@ -42,6 +42,7 @@ import { ReviewFormComponent } from './components/reviews/review-form/review-for
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UpdateEducationComponent } from './components/educations/update-education/update-education.component';
 import { UpdateExperienceComponent } from './components/experiences/update-experience/update-experience.component';
+import { ProfileImageUploadComponent } from './components/profiles/profile-image-upload/profile-image-upload.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { UpdateExperienceComponent } from './components/experiences/update-exper
     ReviewFormComponent,
     UpdateEducationComponent,
     UpdateExperienceComponent,
+    ProfileImageUploadComponent,
   ],
   imports: [
     BrowserModule,
