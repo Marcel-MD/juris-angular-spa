@@ -3,6 +3,7 @@
   <img *ngIf="imageName" [src]="imageUrl" />
   <input
     type="file"
+    accept="image/*"
     #file
     placeholder="Choose file"
     (change)="uploadFile(file.files)"
