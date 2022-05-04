@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarButtonComponent } from './components/navigation/navbar-button/navbar-button.component';
@@ -43,6 +44,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { UpdateEducationComponent } from './components/educations/update-education/update-education.component';
 import { UpdateExperienceComponent } from './components/experiences/update-experience/update-experience.component';
 import { ProfileImageUploadComponent } from './components/profiles/profile-image-upload/profile-image-upload.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { CategoryFormComponent } from './components/admin/category-form/category-form.component';
+import { CityFormComponent } from './components/admin/city-form/city-form.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +71,9 @@ import { ProfileImageUploadComponent } from './components/profiles/profile-image
     UpdateEducationComponent,
     UpdateExperienceComponent,
     ProfileImageUploadComponent,
+    DashboardComponent,
+    CategoryFormComponent,
+    CityFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +96,7 @@ import { ProfileImageUploadComponent } from './components/profiles/profile-image
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatChipsModule,
 
     FlexLayoutModule,
   ],

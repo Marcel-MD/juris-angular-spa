@@ -1,0 +1,18 @@
+<mat-form-field class="example-chip-list" appearance="fill">
+  <mat-label>Profile Cities</mat-label>
+  <mat-chip-list #chipList aria-label="city selection">
+    <mat-chip *ngFor="let city of cities" (removed)="deleteCity(city.id)">
+      {{ city.name }}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+    <input
+      placeholder="New city..."
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-list>
+</mat-form-field>
