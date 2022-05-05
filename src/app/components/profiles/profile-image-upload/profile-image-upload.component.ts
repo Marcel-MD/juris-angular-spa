@@ -14,9 +14,7 @@ export class ProfileImageUploadComponent implements OnInit {
   constructor(private profileService: ProfileService) {}
 
   ngOnInit(): void {
-    if (this.imageName) {
-      this.imageUrl = this.getImageUrl(this.imageName);
-    }
+    this.imageUrl = this.getImageUrl(this.imageName);
   }
 
   getImageUrl(imageName?: string) {

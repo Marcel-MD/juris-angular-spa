@@ -26,5 +26,7 @@
       <mat-icon>delete_forever</mat-icon> Delete
     </button>
   </mat-card-actions>
-  <mat-card-footer>{{ review.creationDate | date: "short" }}</mat-card-footer>
+  <mat-card-footer>{{
+    review.creationDate | date: "short":"+0600"
+  }}</mat-card-footer>
 </mat-card>

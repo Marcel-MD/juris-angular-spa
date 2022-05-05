@@ -115,7 +115,7 @@
       </div>
     </mat-card>
     <app-appointment-form
-      *ngIf="profile"
+      *ngIf="profile && profile.userId != userService.getUserId()"
       [userId]="profile.userId"
     ></app-appointment-form>
   </div>
@@ -128,6 +128,9 @@
     </ng-container>
   </div>
   <div class="main-container">
-    <app-review-form [profileId]="profile.id"></app-review-form>
+    <app-review-form
+      *ngIf="profile && profile.userId != userService.getUserId()"
+      [profileId]="profile.id"
+    ></app-review-form>
   </div>
 </ng-container>
