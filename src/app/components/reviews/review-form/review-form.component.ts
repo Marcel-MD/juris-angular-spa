@@ -29,6 +29,7 @@ export class ReviewFormComponent implements OnInit {
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(50),
+      Validators.pattern('[- +()0-9]+'),
     ]),
     description: new FormControl('', [
       Validators.required,
