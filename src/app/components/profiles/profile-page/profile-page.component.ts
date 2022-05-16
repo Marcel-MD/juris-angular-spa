@@ -35,14 +35,16 @@ export class ProfilePageComponent implements OnInit {
     if (this.profile && this.profile.imageName) {
       return this.profileService.getProfileImageUrl(this.profile.imageName);
     }
-    return '/assets/sample-profile.png';
+    return 'assets/sample-profile.png';
   }
 
   deleteProfile() {
     if (!this.profile) return;
     this.profileService.deleteProfile(this.profile.id).subscribe(() => {
       this.userService.updateProfileId(0);
-      window.location.href = '/';
+      this.router.navigate(['/']).then(() => {
+        window.location.reload();
+      });
     });
   }
 
@@ -60,7 +62,9 @@ export class ProfilePageComponent implements OnInit {
   createNewProfile() {
     this.profileService.createEmptyProfile().subscribe((p) => {
       this.userService.updateProfileId(p.id);
-      window.location.href = `/profile/${p.id}/update`;
+      this.router.navigate([`/profile/${p.id}/update`]).then(() => {
+        window.location.reload();
+      });
     });
   }
 }

@@ -9,7 +9,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class ProfileImageUploadComponent implements OnInit {
   @Input() profileId!: number;
   @Input() imageName?: string;
-  imageUrl = '/assets/sample-profile.png';
+  imageUrl = 'assets/sample-profile.png';
 
   constructor(private profileService: ProfileService) {}
 
@@ -21,7 +21,7 @@ export class ProfileImageUploadComponent implements OnInit {
     if (imageName) {
       return this.profileService.getProfileImageUrl(imageName);
     }
-    return '/assets/sample-profile.png';
+    return 'assets/sample-profile.png';
   }
 
   uploadFile(files: any) {

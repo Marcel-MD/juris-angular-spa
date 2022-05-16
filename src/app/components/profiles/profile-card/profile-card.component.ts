@@ -18,6 +18,6 @@ export class ProfileCardComponent implements OnInit {
     if (this.profile.imageName) {
       return this.profileService.getProfileImageUrl(this.profile.imageName);
     }
-    return '/assets/sample-profile.png';
+    return 'assets/sample-profile.png';
   }
 }

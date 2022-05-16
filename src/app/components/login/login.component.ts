@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
       } as CreateUser)
       .subscribe((user) => {
         if (!user) return;
-        window.location.href = '/';
+        this.router.navigate(['/']).then(() => {
+          window.location.reload();
+        });
       });
   }
 
