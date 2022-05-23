@@ -128,6 +128,24 @@
     </ng-container>
   </div>
   <div class="main-container">
+    <div>
+      <button
+        *ngIf="pageNumber && pageNumber > 1"
+        mat-raised-button
+        color="primary"
+        (click)="previousPage()"
+      >
+        <mat-icon>arrow_back_ios</mat-icon>Previous Page
+      </button>
+      <button
+        *ngIf="profile.reviews && profile.reviews.length > 5"
+        mat-raised-button
+        color="primary"
+        (click)="nextPage()"
+      >
+        Next Page <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
     <app-review-form
       *ngIf="profile && profile.userId != userService.getUserId()"
       [profileId]="profile.id"

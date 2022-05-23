@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ProfileStatusEnum } from 'src/app/models/enums/profile-status.enum';
+import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -14,12 +15,14 @@ export class ProfilePageComponent implements OnInit {
   profileId?: number;
   profile?: Profile = undefined;
   statusEnum = ProfileStatusEnum;
+  pageNumber = 1;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public userService: UserService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private reviewService: ReviewService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +31,8 @@ export class ProfilePageComponent implements OnInit {
     if (id == 0) return;
     this.profileService.getProfileById(id).subscribe((profile) => {
       this.profile = profile;
+      this.profile.reviews = [];
+      this.getReviews();
     });
   }
 
@@ -66,5 +71,28 @@ export class ProfilePageComponent implements OnInit {
         window.location.reload();
       });
     });
+  }
+
+  getReviews() {
+    if (!this.profile) return;
+    this.reviewService
+      .getReviews(this.profile.id, { pageNumber: this.pageNumber })
+      .subscribe((r) => {
+        if (this.profile) this.profile.reviews = r;
+      });
+  }
+
+  nextPage() {
+    if (!this.profile) return;
+    if (this.profile.reviews.length < 6 || !this.pageNumber) return;
+    this.pageNumber++;
+    this.getReviews();
+  }
+
+  previousPage() {
+    if (!this.profile) return;
+    if (!this.pageNumber || this.pageNumber < 2) return;
+    this.pageNumber--;
+    this.getReviews();
   }
 }
