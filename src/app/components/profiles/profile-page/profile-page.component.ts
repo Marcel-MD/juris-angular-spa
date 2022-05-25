@@ -84,7 +84,7 @@ export class ProfilePageComponent implements OnInit {
 
   nextPage() {
     if (!this.profile) return;
-    if (this.profile.reviews.length < 6 || !this.pageNumber) return;
+    if (this.profile.reviews.length < 3 || !this.pageNumber) return;
     this.pageNumber++;
     this.getReviews();
   }

@@ -26,7 +26,7 @@ export class ReviewService {
     params: ReviewQueryParams
   ): Observable<Review[]> {
     const url = `${this.url}/${profileId}`;
-    let httpParams = new HttpParams().set('PageSize', 6);
+    let httpParams = new HttpParams().set('PageSize', 3);
 
     if (params.pageNumber) {
       httpParams = httpParams.set('PageNumber', params.pageNumber);

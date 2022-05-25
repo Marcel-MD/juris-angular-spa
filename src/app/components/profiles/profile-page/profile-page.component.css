@@ -52,3 +52,7 @@ p {
   margin: auto;
   padding: 1em;
 }
+
+.paging-button {
+  margin: 1em;
+}

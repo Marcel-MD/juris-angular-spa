@@ -133,14 +133,16 @@
         *ngIf="pageNumber && pageNumber > 1"
         mat-raised-button
         color="primary"
+        class="paging-button"
         (click)="previousPage()"
       >
         <mat-icon>arrow_back_ios</mat-icon>Previous Page
       </button>
       <button
-        *ngIf="profile.reviews && profile.reviews.length > 5"
+        *ngIf="profile.reviews && profile.reviews.length > 2"
         mat-raised-button
         color="primary"
+        class="paging-button"
         (click)="nextPage()"
       >
         Next Page <mat-icon>arrow_forward_ios</mat-icon>
